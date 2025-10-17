@@ -1,0 +1,70 @@
+<app-safe-area-view>
+  @if (isLoading) {
+  <app-loader />
+  }
+
+  <app-header
+    [title]="'MESIO'"
+    [showBasket]="true"
+    [showBurger]="true"
+    [titleStyle]="{'font-weight': 500}"
+  />
+
+  <main>
+    <!-- CATEGORIES -->
+    <section class="categories">
+      <swiper-container
+        slides-per-view="auto"
+        space-between="10"
+      >
+        @for (category of categories; track category) {
+        <swiper-slide class="swiper-slide">
+          <a
+            class="category-btn"
+            [routerLink]="['/shop-category', category]"
+          >
+            <span class="category-name">{{ category }}</span>
+          </a>
+        </swiper-slide>
+        }
+      </swiper-container>
+    </section>
+
+    <!-- POPULAR DISHES -->
+    <section class="popular-dishes">
+      <app-block-heading
+        [routerLink]="['/shop-popular', {category: 'popular'}]"
+        [title]="'Popular Dishes'"
+        [containerStyle]="{'padding': '0 20px'}"
+      />
+      <swiper-container
+        slides-per-view="auto"
+        space-between="14"
+      >
+        @for (dish of popular; track dish.id) {
+        <swiper-slide class="swiper-slide">
+          <app-popular-item [dish]="dish" />
+        </swiper-slide>
+        }
+      </swiper-container>
+    </section>
+
+    <!-- RECOMMENDED DISHES -->
+    <section>
+      <app-block-heading
+        [routerLink]="['/shop-recommended', {category: 'recommended'}]"
+        [title]="'Recommended Dishes'"
+        [containerStyle]="{'padding': '0 20px', 'margin-bottom': '18px'}"
+      />
+      <div class="recommended-dishes">
+        @for (dish of recommended; track dish.id) {
+        <app-recommended-item [dish]="dish" />
+        }
+      </div>
+    </section>
+  </main>
+
+  <app-bottom-tab-bar />
+</app-safe-area-view>
+
+<app-burger-modal />

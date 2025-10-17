@@ -1,0 +1,58 @@
+<app-safe-area-view>
+  <app-header
+    [title]="'Sign In'"
+    [showGoBack]="true"
+  />
+
+  <main class="main">
+    <h1 class="title">Welcome Back John!</h1>
+    <p class="subtitle">Sign in to continue</p>
+    <app-input-field
+      [label]="'Email Address'"
+      [placeholder]="'john.doe@example.com'"
+      [containerStyle]="{'margin-bottom': '16px'}"
+    />
+    <app-input-field
+      [label]="'Password'"
+      [placeholder]="'password'"
+      [containerStyle]="{'margin-bottom': '30px'}"
+    />
+    <div class="remember-me">
+      <div
+        class="checkbox-container"
+        (click)="setRememberMe()"
+      >
+        <div class="checkbox">
+          @if (rememberMe) {
+          <img
+            [src]="svg.check"
+            alt=""
+          />
+          }
+        </div>
+        <span class="checkbox-label">Remember me</span>
+      </div>
+
+      <a
+        class="forgot-password"
+        [routerLink]="'/forgot-password'"
+        >Forgot password?</a
+      >
+    </div>
+    <app-button
+      label="Sign In"
+      [routerLink]="['/home']"
+    />
+  </main>
+
+  <footer class="footer">
+    <span>
+      Don't have an account?
+      <a
+        class="sign-up-link"
+        [routerLink]="'/sign-up'"
+        >Sign Up</a
+      >
+    </span>
+  </footer>
+</app-safe-area-view>

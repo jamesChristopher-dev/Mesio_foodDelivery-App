@@ -1,0 +1,27 @@
+<div class="review-item">
+  <!-- top block -->
+  <div class="top-block">
+    <img
+      class="avatar"
+      [src]="review.avatar"
+      [alt]="review.name"
+    />
+    <div class="info">
+      <div class="row name-date">
+        <h5 class="name">{{ review.name }}</h5>
+        <span class="date">{{ review.date }}</span>
+      </div>
+      <div class="row actions">
+        <app-rating [rating]="review.rating" />
+        <a
+          class="reply"
+          [routerLink]="'/reply-to-comment'"
+          >Reply</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- bottom block -->
+  <p class="comment">{{ review.comment }}</p>
+</div>

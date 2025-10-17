@@ -1,0 +1,12 @@
+<app-safe-area-view>
+  <app-header
+    [showGoBack]="true"
+    [title]="'Notifications'"
+  />
+
+  <main>
+    @for (notification of notifications; track notification.id) {
+    <app-notification-item [notification]="notification" />
+    }
+  </main>
+</app-safe-area-view>

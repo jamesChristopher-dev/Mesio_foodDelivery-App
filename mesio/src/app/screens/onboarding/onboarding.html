@@ -1,0 +1,43 @@
+<!-- CAROUSEL -->
+<section class="swiper-section">
+  <swiper-container
+    #swiperRef
+    (swiperslidechange)="onSlideChange()"
+    class="swiper-container"
+  >
+    @for (slide of onboarding; track slide) {
+    <swiper-slide class="swiper-slide">
+      <img
+        class="onboarding-slide"
+        [src]="slide.image"
+        alt="Onboarding Slide"
+      />
+    </swiper-slide>
+    }
+  </swiper-container>
+</section>
+
+<!-- DETAILS -->
+<section class="details">
+  <h1 class="details__title">{{ onboarding[activeIndex].title }}</h1>
+  <p class="details__description">{{ onboarding[activeIndex].description }}</p>
+
+  <!-- DOTS -->
+  <div class="dots">
+    @for (slide of onboarding; track slide.id; let i = $index) {
+    <span
+      class="dots__dot"
+      [class.active]="i === activeIndex"
+    ></span>
+    }
+  </div>
+
+  <!-- BUTTON -->
+  <button
+    type="button"
+    class="button"
+    [routerLink]="['/sign-in']"
+  >
+    <span class="button__label">Get Started</span>
+  </button>
+</section>

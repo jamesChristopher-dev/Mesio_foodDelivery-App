@@ -1,0 +1,99 @@
+<app-safe-area-view>
+  @if (isLoading) {
+  <app-loader />
+  }
+
+  <app-header
+    [showGoBack]="true"
+    [showBasket]="true"
+    [title]="'Dish Details'"
+  />
+
+  <main>
+    <!-- IMAGE -->
+    <div class="dish__image-container">
+      <img
+        [src]="dish?.image"
+        alt="Dish Image"
+        class="dish-image"
+      />
+      <!-- ADD TO WISHLIST -->
+      <div class="add-to-wishlist">
+        <button
+          class="add-to-wishlist-button"
+          (click)="
+        $event.stopPropagation();
+        $event.preventDefault();
+        dish && addToWishlist(dish);
+      "
+        >
+          @if (dish && ifInWishlist(dish)) {
+          <img
+            [src]="svg.wishlistAddRed"
+            alt="Add to Wishlist"
+            class="add-to-wishlist-icon"
+          />
+          } @else if (dish && !ifInWishlist(dish)) {
+          <img
+            [src]="svg.wishlistAddGray"
+            alt="Add to Wishlist"
+            class="add-to-wishlist-icon"
+          />
+          }
+        </button>
+      </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="dish__details">
+      <h1 class="dish__name">{{ dish?.name }}</h1>
+      <p class="dish__description">{{ dish?.description }}</p>
+    </div>
+
+    <!-- PRICE AND RATING -->
+    <div class="dish__info">
+      <span class="dish__price">{{ dish?.price | currency }}</span>
+      <a
+        href=""
+        class="dish__rating-link"
+        [routerLink]="['/reviews']"
+      >
+        <img
+          [src]="svg.starSvg"
+          alt="Star"
+          class="dish__rating-icon"
+        />
+        <span class="dish__rating">{{ reviews.length }} Reviews</span>
+      </a>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="buttons">
+      <app-button
+        [label]="`Add To Cart ${getDishQty() === 0 ? '' : '(' + getDishQty() + ')'}`"
+        (click)="addToCart($event)"
+        [containerStyle]="{'margin-bottom': '14px'}"
+      />
+      <app-button
+        [label]="'Remove From Cart'"
+        [colorScheme]="'secondary'"
+        (click)="removeFromCart($event)"
+      />
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="reviews">
+      @for (review of reviews; track review.id) {
+      <app-review-item [review]="review" />
+      }
+    </div>
+
+    <!-- BUTTON -->
+    <div class="write-review-button">
+      <app-button
+        [label]="'Leave a Review'"
+        [routerLink]="['/leave-a-review']"
+      />
+    </div>
+  </main>
+</app-safe-area-view>

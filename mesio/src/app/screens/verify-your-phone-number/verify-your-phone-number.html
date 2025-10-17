@@ -1,0 +1,17 @@
+<app-header
+  [showGoBack]="true"
+  [title]="'Verify Number'"
+/>
+
+<main>
+  <h1 class="title">Verify</h1>
+  <p class="subtitle">We have sent you an sms with a code to number +1234567890</p>
+  <app-input-field
+    [placeholder]="'+1234567890'"
+    [containerStyle]="{'margin-bottom': '16px'}"
+  />
+  <app-button
+    [label]="'Confirm'"
+    [routerLink]="'/confirmation-code'"
+  />
+</main>

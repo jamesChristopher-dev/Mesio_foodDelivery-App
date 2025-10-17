@@ -1,0 +1,22 @@
+:host {
+  .block-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title {
+    font-weight: 600;
+    color: var(--main-dark-color);
+    font-size: 18px;
+    text-transform: capitalize;
+  }
+
+  .view-all {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--sea-green-color);
+    text-decoration: none;
+  }
+}

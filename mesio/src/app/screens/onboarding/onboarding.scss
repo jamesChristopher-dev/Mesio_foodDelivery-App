@@ -1,0 +1,112 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  padding-top: constant(safe-area-inset-top);
+  padding-right: constant(safe-area-inset-right);
+  padding-left: constant(safe-area-inset-left);
+
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+
+  .swiper-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .onboarding-slide {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .details {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 48px;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
+    background-color: var(--sea-green-color);
+
+    &__title {
+      margin-bottom: 20px;
+      color: var(--white-color);
+    }
+
+    &__description {
+      color: var(--white-color);
+      text-align: center;
+      max-width: 280px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+    }
+  }
+
+  .dots {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+
+    &__dot {
+      display: flex;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--light-gray-color);
+
+      &.active {
+        background-color: var(--orange-color);
+      }
+    }
+  }
+
+  .button {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--orange-color);
+
+    &__label {
+      color: var(--white-color);
+      font-weight: 700;
+      text-transform: capitalize;
+      font-size: 16px;
+    }
+  }
+}

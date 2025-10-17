@@ -1,0 +1,82 @@
+<a
+  class="item"
+  [routerLink]="['/dish', dish.id]"
+>
+  <img
+    [src]="dish.image"
+    alt="{{ dish.name }}"
+    class="item-image"
+  />
+  <h2 class="item-title number-of-lines-1">{{ dish.name }}</h2>
+  <div class="item-rating">
+    <app-rating [rating]="dish.rating"></app-rating>
+    <span class="item-rating-value">{{dish.rating}}</span>
+  </div>
+  <span class="item-price">${{ dish.price }}</span>
+  <app-add-to-cart-btn [dish]="dish" />
+
+  <!-- ADD TO CART BUTTON -->
+  @if (!ifInCart(dish)) {
+  <button
+    class="item-add-to-cart-btn"
+    (click)="
+      $event.stopPropagation();
+      $event.preventDefault();
+      addToCart(dish);
+    "
+  >
+    <img
+      [src]="svg.addToCart"
+      alt="add to cart"
+    />
+  </button>
+  } @if (ifInCart(dish)) {
+  <button
+    class="item-add-to-cart-btn"
+    (click)="
+      $event.stopPropagation();
+      $event.preventDefault();
+      addToCart(dish);
+    "
+  >
+    <img
+      [src]="svg.addToCartFill"
+      alt="add to cart"
+    />
+  </button>
+  }
+
+  <!-- IF IN WISHLIST -->
+  @if (ifInWishlist(dish)) {
+  <button
+    class="item-add-to-wishlist-btn"
+    (click)="
+      $event.stopPropagation();
+      $event.preventDefault();
+      removeFromWishlist(dish);
+    "
+  >
+    <img
+      [src]="svg.wishlistAddRed"
+      alt="add to wishlist"
+    />
+  </button>
+  }
+
+  <!-- IF NOT IN WISHLIST -->
+  @if (!ifInWishlist(dish)) {
+  <button
+    class="item-add-to-wishlist-btn"
+    (click)="
+      $event.stopPropagation();
+      $event.preventDefault();
+      addToWishlist(dish);
+    "
+  >
+    <img
+      [src]="svg.wishlistAddGray"
+      alt="add to wishlist"
+    />
+  </button>
+  }
+</a>

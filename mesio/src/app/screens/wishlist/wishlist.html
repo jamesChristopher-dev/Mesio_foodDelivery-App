@@ -1,0 +1,18 @@
+<app-safe-area-view>
+  <app-header
+    [title]="'MESIO'"
+    [showBasket]="true"
+    [showBurger]="true"
+    [titleStyle]="{'font-weight': 500}"
+  />
+
+  <main>
+    @for (dish of wishlist; track dish.id) {
+    <app-wishlist-item [dish]="dish" />
+    }
+  </main>
+
+  <app-bottom-tab-bar />
+</app-safe-area-view>
+
+<app-burger-modal />

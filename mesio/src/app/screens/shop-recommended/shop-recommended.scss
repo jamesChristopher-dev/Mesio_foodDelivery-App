@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  main {
+    margin-top: var(--header-height);
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding: 20px;
+    padding-top: 16px;
+  }
+
+  .dishes-list {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,23 @@
+<app-safe-area-view>
+  <app-header
+    [showGoBack]="true"
+    [title]="'My Promocodes Empty'"
+  />
+
+  <main>
+    <img
+      class="image"
+      [src]="svg.gift"
+      alt="empty promocode"
+    />
+    <h2 class="title">You do not have Promocodes</h2>
+    <p class="description">
+      Go hunt for vouchers at Foodsss <br />
+      Voucher right away.
+    </p>
+    <app-button
+      [label]="'Submit'"
+      [routerLink]="['/profile']"
+    />
+  </main>
+</app-safe-area-view>

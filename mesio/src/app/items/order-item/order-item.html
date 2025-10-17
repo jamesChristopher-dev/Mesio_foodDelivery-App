@@ -1,0 +1,46 @@
+<a
+  class="item"
+  [routerLink]="['/dish', dish.id]"
+>
+  <!-- IMAGE -->
+  <img
+    [src]="dish.image"
+    alt="{{ dish.name }}"
+    class="item__image"
+  />
+
+  <!-- DETAILS -->
+  <div class="item__details">
+    <h3 class="item__name">{{ dish.name }}</h3>
+    <div class="rating">
+      <app-rating [rating]="dish.rating" />
+      <span class="rating-value">({{dish.rating}})</span>
+    </div>
+    <p class="item__ingredients number-of-lines-1">
+      {{dish.ingredients?.join(', ') || 'No ingredients'}}
+    </p>
+  </div>
+
+  <!-- COUNTER -->
+  <div class="item__counter">
+    <button
+      class="item__counter-btn"
+      (click)="removeFromCart(dish, $event)"
+    >
+      <img
+        [src]="svg.minusSvg"
+        alt="Add"
+      />
+    </button>
+    <span class="item__counter-value">{{getDishQty()}}</span>
+    <button
+      class="item__counter-btn"
+      (click)="addToCart(dish, $event)"
+    >
+      <img
+        [src]="svg.plusSvg"
+        alt="Add"
+      />
+    </button>
+  </div>
+</a>

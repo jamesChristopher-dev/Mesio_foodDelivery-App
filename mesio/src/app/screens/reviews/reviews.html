@@ -1,0 +1,14 @@
+<app-safe-area-view>
+  <app-header
+    [showGoBack]="true"
+    [title]="'Reviews'"
+  />
+
+  <main>
+    <div class="reviews">
+      @for (review of reviews; track review.id) {
+      <app-review-item [review]="review" />
+      }
+    </div>
+  </main>
+</app-safe-area-view>

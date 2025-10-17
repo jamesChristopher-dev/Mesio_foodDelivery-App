@@ -1,0 +1,43 @@
+<app-safe-area-view>
+  <app-header
+    [showGoBack]="true"
+    title="FAQ"
+  />
+
+  <main class="support-main">
+    <!-- TABS -->
+    <ul class="support-tabs">
+      @for (item of faq; track item.id; let last = $last) {
+      <li class="order-history__item">
+        <details
+          [open]="openAccordions.has(item.id)"
+          (toggle)="toggleAccordion(item.id)"
+          class="support-details"
+        >
+          <!-- header -->
+          <summary>
+            <section class="support-summary">
+              <h6>{{ item.question }}</h6>
+              @if (openAccordions.has(item.id)) {
+              <img
+                [src]="svg.openArrow"
+                alt="Close"
+              />
+              } @else {
+              <img
+                [src]="svg.closeArrow"
+                alt="Open"
+              />
+              }
+            </section>
+          </summary>
+          <!-- FAQ answer -->
+          <section>
+            <p class="t14">{{ item.answer }}</p>
+          </section>
+        </details>
+      </li>
+      }
+    </ul>
+  </main>
+</app-safe-area-view>

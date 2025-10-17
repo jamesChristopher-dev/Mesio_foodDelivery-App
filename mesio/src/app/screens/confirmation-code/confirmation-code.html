@@ -1,0 +1,36 @@
+<app-safe-area-view>
+  <app-header
+    [title]="'Verify your phone number'"
+    [showGoBack]="true"
+  />
+
+  <main class="content">
+    <h2 class="title">OTP Verification</h2>
+
+    <div class="otp-container">
+      @for (code of otpCode; track $index) {
+      <button
+        class="otp-button"
+        (click)="handleCodeChange($index, code)"
+      >
+        {{ code || '_' }}
+      </button>
+      }
+    </div>
+
+    <p class="resend-text">
+      Didn't receive the OTP?
+      <span
+        class="resend-link"
+        (click)="resendOtp()"
+        >Resend.</span
+      >
+    </p>
+
+    <app-button
+      [label]="'Confirm'"
+      [containerStyle]="{ 'margin-top': '20px' }"
+      (onClick)="confirm()"
+    />
+  </main>
+</app-safe-area-view>

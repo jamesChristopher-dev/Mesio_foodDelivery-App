@@ -1,0 +1,13 @@
+<div class="notification-item">
+  @if (notification.icon) {
+  <img
+    class="icon"
+    [src]="notification.icon"
+    alt=""
+  />
+  }
+  <div class="content">
+    <span class="title number-of-lines-1">{{ notification.title }}</span>
+    <span class="message number-of-lines-1">{{ notification.message }}</span>
+  </div>
+</div>

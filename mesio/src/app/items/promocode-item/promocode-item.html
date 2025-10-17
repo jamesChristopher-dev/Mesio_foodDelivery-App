@@ -1,0 +1,20 @@
+<div
+  class="promocode-item"
+  (click)="copyToClipboard(promo.code)"
+>
+  <img
+    [src]="promo.logo"
+    alt="{{ promo.name }}"
+    class="promocode-logo"
+  />
+  <div class="promocode-details">
+    <h2 class="promocode-name">{{promo.name}}</h2>
+    <span class="promocode-discount">{{promo.discount}}% Off</span>
+    <span class="promocode-expiration">Valid until {{promo.expiresAt}}</span>
+  </div>
+  <img
+    [src]="svg.copy"
+    alt="Copy"
+    class="copy-icon"
+  />
+</div>

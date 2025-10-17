@@ -1,0 +1,14 @@
+<app-safe-area-view>
+  <app-header
+    [showGoBack]="true"
+    [title]="'Popular Dishes'"
+  />
+
+  <main>
+    <div class="dishes-list">
+      @for (dish of dishes; track dish.id) {
+      <app-shop-item [dish]="dish" />
+      }
+    </div>
+  </main>
+</app-safe-area-view>

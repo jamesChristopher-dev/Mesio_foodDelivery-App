@@ -1,0 +1,59 @@
+<app-safe-area-view>
+  <app-header
+    [title]="'Profile'"
+    [showBasket]="true"
+    [showBurger]="true"
+  />
+
+  <main>
+    <img
+      [src]="'https://george-fx.github.io/mesio-data/users/01.jpg'"
+      alt="User Avatar"
+      class="avatar"
+    />
+    <h2 class="name">Kristin Watsan</h2>
+    <span class="phone">+880123 456 789</span>
+    <div class="menu">
+      <app-profile-menu-item
+        [title]="'Order History'"
+        [route]="'/order-history'"
+        [icon]="svg.profileOrder"
+        [description]="'Review your order history'"
+      />
+      <app-profile-menu-item
+        [title]="'Notifications'"
+        [description]="'Your Notifications'"
+        [route]="'/notifications'"
+        [icon]="svg.notification"
+      />
+      <app-profile-menu-item
+        [title]="'FAQ'"
+        [route]="'/faq'"
+        [icon]="svg.faq"
+        [description]="'Frequently Questions'"
+      />
+      <app-profile-menu-item
+        [title]="'My Promocodes'"
+        [route]="'/my-promocodes'"
+        [icon]="svg.profileOrder"
+        [description]="'Your Promocodes'"
+      />
+      <app-profile-menu-item
+        [title]="'My Promocodes Empty'"
+        [route]="'/my-promocodes-empty'"
+        [icon]="svg.profileOrder"
+        [description]="'Your Promocodes'"
+      />
+      <app-profile-menu-item
+        [title]="'Logout'"
+        [route]="'/sign-in'"
+        [icon]="svg.logout"
+        [description]="'Logout from your account'"
+      />
+    </div>
+  </main>
+
+  <app-bottom-tab-bar />
+</app-safe-area-view>
+
+<app-burger-modal />

@@ -1,0 +1,13 @@
+<app-header
+  [title]="'Shop'"
+  [showGoBack]="true"
+  [showBasket]="true"
+/>
+
+<main>
+  <div class="dishes-list">
+    @for (dish of filteredDishes; track dish.id) {
+    <app-shop-item [dish]="dish" />
+    }
+  </div>
+</main>

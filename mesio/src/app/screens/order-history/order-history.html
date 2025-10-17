@@ -1,0 +1,67 @@
+<app-safe-area-view>
+  <app-header
+    [showGoBack]="true"
+    [title]="'Order History'"
+  />
+  <main class="main-container">
+    <ul class="order-list">
+      @for (order of orders; track order.id; let last = $last) {
+      <li
+        class="order-history__item"
+        [routerLink]="['/order', order.id]"
+        [ngStyle]="{
+        'margin-bottom': last ? '0' : '10px'
+      }"
+      >
+        <details
+          [open]="openAccordions.has(order.id)"
+          (toggle)="toggleAccordion(order.id)"
+          class="order-details"
+        >
+          <!-- header -->
+          <summary
+            class="order-summary"
+            [ngStyle]="{
+            'border-bottom': openAccordions.has(order.id)
+              ? '1px solid #EEEEEE'
+              : 'none',
+            'border-bottom-left-radius': openAccordions.has(order.id)
+              ? '0px'
+              : '10px',
+            'border-bottom-right-radius': openAccordions.has(order.id)
+              ? '0px'
+              : '10px'
+          }"
+          >
+            <section class="order-header">
+              <h5 class="order-id">#{{ order.id }}</h5>
+              @if (order.status === 'delivered') {
+              <span class="status-delivered">Delivered</span>
+              } @else if (order.status === 'shipping') {
+              <span class="status-shipping">Shipping</span>
+              } @else if (order.status === 'canceled') {
+              <span class="status-canceled">Canceled</span>
+              }
+            </section>
+            <section class="order-info">
+              <span class="order-date"> {{ order.date }} at {{ order.time.toUpperCase() }} </span>
+              <span class="order-total"> ${{ order.total }} </span>
+            </section>
+          </summary>
+          <!-- Order details -->
+          <section class="order-products">
+            <ul class="product-list">
+              @for (dish of order.dishes; track dish.id || dish.name) {
+              <li class="product-item">
+                <span class="product-name">{{ dish.name }}</span>
+                <span class="product-quantity"> {{ dish.quantity }} x ${{ dish.price }} </span>
+              </li>
+              }
+            </ul>
+          </section>
+        </details>
+      </li>
+      }
+    </ul>
+  </main>
+</app-safe-area-view>

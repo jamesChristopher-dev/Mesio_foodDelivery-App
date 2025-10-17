@@ -1,0 +1,56 @@
+<header class="header">
+  <!-- SHOW BURGER -->
+  @if (showBurger) {
+  <button
+    class="header__go-back"
+    (click)="openModal()"
+  >
+    <img
+      [src]="svg.burger"
+      alt="burger"
+    />
+  </button>
+  }
+
+  <!-- SHOW GO BACK -->
+  @if (showGoBack) {
+  <button
+    class="header__go-back"
+    (click)="goBack()"
+  >
+    <img
+      [src]="svg.goBack"
+      alt="go back icon"
+    />
+  </button>
+  }
+
+  <!-- SHOW TITLE -->
+  @if (title) {
+  <h4
+    class="header__title"
+    [ngStyle]="titleStyle"
+  >
+    {{title}}
+  </h4>
+  }
+
+  <!-- SHOW BASKET -->
+  @if (showBasket) {
+  <a
+    class="header__basket"
+    routerLink="/order"
+  >
+    <div class="basket-indicator">
+      <span class="basket-total">
+        ${{ total.toFixed(2) === '0.00' ? '0' : total.toFixed(2) === '-0.00' ? '0' :
+        total.toFixed(2) }}
+      </span>
+    </div>
+    <img
+      [src]="svg.basket"
+      alt="basket"
+    />
+  </a>
+  }
+</header>

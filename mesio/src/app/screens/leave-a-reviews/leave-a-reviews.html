@@ -1,0 +1,29 @@
+<app-safe-area-view>
+  <app-header
+    [showGoBack]="true"
+    [title]="'Leave a Review'"
+  />
+
+  <main>
+    <img
+      [src]="svg.comment"
+      class="comment-icon"
+    />
+    <p class="description-text">
+      Your comments and suggestions help <br />
+      us improve the service quality better!
+    </p>
+    <div class="rating-container">
+      <app-rating-stars />
+    </div>
+    <app-input-field
+      [label]="'Review'"
+      [placeholder]="'Write your review...'"
+      [containerStyle]="{'margin-top': '12px', 'height': '127px','justify-content': 'flex-start', 'align-items': 'flex-start', 'padding': '12px', 'margin-bottom': '20px'}"
+    />
+    <app-button
+      [label]="'Send Review'"
+      (click)="goBack()"
+    />
+  </main>
+</app-safe-area-view>

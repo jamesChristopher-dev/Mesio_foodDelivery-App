@@ -1,0 +1,28 @@
+<div
+  class="rating-container"
+  [ngStyle]="containerStyle"
+>
+  @for (star of stars; track star) {
+  <button
+    class="star-button"
+    [class.last-star]="star === 5"
+    (click)="onStarClick(star)"
+  >
+    <svg
+      class="star-icon"
+      [class.active]="isStarActive(star)"
+      xmlns="http://www.w3.org/2000/svg"
+      width="40"
+      height="40"
+      fill="none"
+      viewBox="0 0 40 40"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="m20 4.463 4.702 9.525a.5.5 0 0 0 .376.273l10.514 1.537-7.608 7.41a.5.5 0 0 0-.144.443l1.796 10.468-9.403-4.945a.5.5 0 0 0-.466 0l-9.403 4.945 1.795-10.468a.5.5 0 0 0-.144-.442l-7.608-7.41 10.515-1.538a.5.5 0 0 0 .376-.273L20 4.463Z"
+      />
+    </svg>
+  </button>
+  }
+</div>

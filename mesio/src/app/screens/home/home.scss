@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+  main {
+    margin-top: var(--header-height);
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding-bottom: 20px;
+  }
+
+  .recommended-dishes {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .swiper-slide {
+    width: auto;
+
+    &:first-child {
+      margin-left: 20px;
+    }
+
+    &:last-child {
+      margin-right: 20px;
+    }
+  }
+
+  .category-btn {
+    display: inline-flex;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 10px;
+    user-select: none;
+  }
+
+  .category-name {
+    font-size: 14px;
+    color: var(--text-color);
+  }
+
+  .categories {
+    margin-bottom: 30px;
+    padding-top: 18px;
+  }
+}

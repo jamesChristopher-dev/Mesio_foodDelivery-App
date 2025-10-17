@@ -1,0 +1,21 @@
+@if (isOpen) {
+<div
+  class="modal-backdrop"
+  (click)="closeModal()"
+></div>
+}
+
+<div
+  class="modal"
+  [@slideInOut]="isOpen ? 'in' : 'out'"
+>
+  <h2 class="modal__title">Contact us</h2>
+  <ul class="modal__menu">
+    @for (item of menuItems; track item.id) {
+    <li class="modal__menu-item">
+      <div class="modal__menu-item-title">{{item.titleLine1}}</div>
+      <div class="modal__menu-item-title">{{item.titleLine2}}</div>
+    </li>
+    }
+  </ul>
+</div>

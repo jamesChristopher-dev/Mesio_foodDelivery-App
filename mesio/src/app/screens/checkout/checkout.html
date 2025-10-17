@@ -1,0 +1,70 @@
+<app-safe-area-view>
+  <app-header
+    [showGoBack]="true"
+    [title]="'Checkout'"
+  />
+
+  <main>
+    <!-- ORDER -->
+    <section class="summary">
+      <div class="summary__details">
+        <h3>My Order</h3>
+        <span>{{ total | currency }}</span>
+      </div>
+      <ul class="summary__dishes-list">
+        @for (dish of dishes; track dish.id) {
+        <li class="summary__item">
+          <span>{{ dish.name }}</span>
+          <span>{{ dish.quantity }} x {{ dish.price | currency }}</span>
+        </li>
+        }
+      </ul>
+    </section>
+
+    <!-- SHIPPING DETAILS -->
+    <section class="shipping-details">
+      <h3 class="shipping-details__title">Shipping Details</h3>
+      <app-input-field
+        [label]="'Full Name'"
+        [placeholder]="'Full Name'"
+        [containerStyle]="{'margin-bottom': '10px'}"
+      />
+      <app-input-field
+        [label]="'Address'"
+        [placeholder]="'Address'"
+        [containerStyle]="{'margin-bottom': '10px'}"
+      />
+      <app-input-field
+        [placeholder]="'Phone Number'"
+        [label]="'Phone Number'"
+      />
+    </section>
+
+    <!-- CARD DETAILS -->
+    <section class="card-details">
+      <h3 class="card-details__title">Card Details</h3>
+      <app-input-field
+        [label]="'Card Number'"
+        [placeholder]="'Enter your card number'"
+        [containerStyle]="{'margin-bottom': '10px'}"
+      />
+      <app-input-field
+        [label]="'Expiry Date'"
+        [placeholder]="'MM/YY'"
+        [containerStyle]="{'margin-bottom': '10px'}"
+      />
+      <app-input-field
+        [placeholder]="'CVC'"
+        [label]="'CVC'"
+      />
+    </section>
+  </main>
+
+  <!-- BUTTON -->
+  <div class="button-container">
+    <app-button
+      label="Place Order"
+      [routerLink]="['/order-successful']"
+    />
+  </div>
+</app-safe-area-view>

@@ -1,0 +1,30 @@
+<app-safe-area-view>
+  <app-header
+    [title]="'Order'"
+    [showBasket]="true"
+    [showBurger]="true"
+    [titleStyle]="{'font-weight': 500}"
+  />
+
+  <main>
+    <div class="order-items">
+      @for (dish of dishes; track dish.id) {
+      <app-order-item [dish]="dish" />
+      }
+    </div>
+
+    <div class="order-summary">
+      <span>Total: ({{ dishes.length }}) items: </span>
+      <span class="total-amount">{{ total | currency }}</span>
+    </div>
+
+    <app-button
+      label="Proceed to Checkout"
+      [routerLink]="['/checkout']"
+    />
+  </main>
+
+  <app-bottom-tab-bar />
+</app-safe-area-view>
+
+<app-burger-modal />

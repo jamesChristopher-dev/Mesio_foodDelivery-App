@@ -1,0 +1,25 @@
+<app-safe-area-view>
+  <app-header
+    [title]="'Order'"
+    [showBasket]="true"
+    [showBurger]="true"
+  />
+
+  <main>
+    <img
+      alt="Empty Cart"
+      [src]="svg.emptyBag"
+      class="image"
+    />
+    <h2 class="title">Your Cart is empty</h2>
+    <p class="description">Looks like you haven't added anything to your cart yet.</p>
+    <app-button
+      label="Shop Now"
+      [routerLink]="['/shop']"
+    />
+  </main>
+
+  <app-bottom-tab-bar />
+</app-safe-area-view>
+
+<app-burger-modal />

@@ -1,0 +1,21 @@
+<app-safe-area-view>
+  <main>
+    <img
+      alt="done"
+      [src]="svg.successSvg"
+      class="done-icon"
+    />
+    <h1 class="title">Order Successful</h1>
+    <p class="description">Your order will be delivered on time. Thank you.</p>
+    <app-button
+      [label]="'View Orders'"
+      [routerLink]="['/order-history']"
+      [containerStyle]="{'margin-bottom': '14px'}"
+    />
+    <app-button
+      [label]="'Continue Shopping'"
+      [routerLink]="['/home']"
+      [colorScheme]="'secondary'"
+    />
+  </main>
+</app-safe-area-view>

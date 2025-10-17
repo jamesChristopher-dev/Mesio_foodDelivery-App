@@ -1,0 +1,67 @@
+<app-safe-area-view>
+  <app-header
+    [title]="'Sign Up'"
+    [showGoBack]="true"
+  />
+
+  <main>
+    <h1 class="title">Welcome to MESIO</h1>
+    <p class="subtitle">Sign up to continue</p>
+    <app-input-field
+      [placeholder]="'John Doe'"
+      [label]="'Full Name'"
+      [containerStyle]="{'margin-bottom': '16px'}"
+    />
+    <app-input-field
+      [placeholder]="'+9123456789'"
+      [label]="'Phone Number'"
+      [containerStyle]="{'margin-bottom': '16px'}"
+    />
+    <app-input-field
+      [placeholder]="'john.doe@example.com'"
+      [label]="'Email'"
+      [containerStyle]="{'margin-bottom': '16px'}"
+    />
+    <app-input-field
+      [placeholder]="'enter password'"
+      [label]="'Password'"
+      [containerStyle]="{'margin-bottom': '16px'}"
+    />
+    <app-input-field
+      [placeholder]="'confirm password'"
+      [label]="'Confirm Password'"
+      [containerStyle]="{'margin-bottom': '16px'}"
+    />
+    <div class="terms-of-service">
+      <div
+        class="checkbox-container"
+        (click)="setAgreeToTerms()"
+      >
+        <div class="checkbox">
+          @if (agreeToTerms) {
+          <img
+            [src]="svg.check"
+            alt=""
+          />
+          }
+        </div>
+        <span class="checkbox-label">You agree to our Terms of Service</span>
+      </div>
+    </div>
+    <app-button
+      label="Sign Up"
+      routerLink="/verify-your-phone-number"
+    />
+  </main>
+
+  <footer class="footer">
+    <span>
+      Already have an account?
+      <a
+        class="sign-in-link"
+        routerLink="/sign-in"
+        >Sign In</a
+      >
+    </span>
+  </footer>
+</app-safe-area-view>

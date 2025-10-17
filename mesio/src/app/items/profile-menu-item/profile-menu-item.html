@@ -1,0 +1,17 @@
+<a
+  [routerLink]="route"
+  class="profile-menu-item"
+>
+  <img
+    [src]="icon"
+    alt="{{ title }}"
+  />
+  <div class="text-content">
+    <h3 class="title">{{ title }}</h3>
+    <p class="description">{{ description }}</p>
+  </div>
+  <img
+    [src]="svg.rightArrow"
+    alt="{{ title }}"
+  />
+</a>

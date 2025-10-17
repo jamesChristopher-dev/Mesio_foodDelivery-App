@@ -1,0 +1,18 @@
+<app-safe-area-view>
+  @if (isLoading) {
+  <app-loader />
+  }
+
+  <app-header
+    [title]="'My Promocodes'"
+    [showGoBack]="true"
+  />
+
+  <main>
+    <ul class="promocode-list">
+      @for (promo of promocodes; track promo.id) {
+      <app-promocode-item [promo]="promo" />
+      }
+    </ul>
+  </main>
+</app-safe-area-view>

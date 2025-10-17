@@ -1,0 +1,28 @@
+:host {
+  .bottom-tab-bar {
+    height: var(--tab-bar-height);
+    border-top: 1px solid #f3f4f5;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tab-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-color: currentColor; // берёт цвет из .tab
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+}

@@ -1,0 +1,36 @@
+<div class="wishlist-item">
+  <button
+    class="image-btn"
+    (click)="navigateToDish()"
+  >
+    <img
+      class="dish-image"
+      [src]="dish.image"
+      [alt]="dish.name"
+    />
+  </button>
+
+  <div class="content">
+    <div class="header">
+      <h2 class="dish-name">{{ dish.name }}</h2>
+      <button
+        class="remove-btn"
+        (click)="onRemoveClick($event)"
+      >
+        <img
+          [src]="isInWishlist ? svg.wishlistAddRed : svg.wishlistAddGray"
+          alt="Remove from wishlist"
+        />
+      </button>
+    </div>
+
+    <div class="rating-row">
+      <app-rating [rating]="dish.rating || 0" />
+      <span class="rating-text">({{ dish.rating || 0 }})</span>
+    </div>
+
+    <p class="ingredients number-of-lines-1">
+      {{ dish.ingredients?.join(', ') || 'No ingredients' }}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<a
+  class="button-container"
+  [routerLink]="routerLink"
+  [ngStyle]="containerStyle"
+>
+  <button
+    type="button"
+    class="button"
+    (click)="onClick.emit()"
+    [style]="{'background-color': colorScheme === 'primary' ? 'var(--sea-green-color)' : '#E8F9F1'}"
+  >
+    <span
+      class="button-label"
+      [style]="{'color': colorScheme === 'primary' ? 'var(--white-color)' : 'var(--sea-green-color)'}"
+    >
+      {{ label }}
+    </span>
+  </button>
+</a>

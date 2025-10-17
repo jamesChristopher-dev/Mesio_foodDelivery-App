@@ -1,0 +1,23 @@
+<a
+  class="item"
+  [routerLink]="['/dish', dish.id]"
+>
+  <img
+    [src]="dish.image"
+    alt="{{dish.name}}"
+    style="width: 100px; height: auto; border-radius: 10px"
+  />
+  <div class="details">
+    <div class="name-and-weight">
+      <h2 class="name">{{dish.name}}</h2>
+      <span class="weight">{{dish.weight}} {{dish.type === 'drink' ? 'ml' : 'g'}}</span>
+    </div>
+    <div class="rating">
+      <app-rating [rating]="dish.rating" />
+      <span class="rating-value">({{dish.rating}})</span>
+    </div>
+    <p class="ingredients number-of-lines-1">
+      {{dish.ingredients?.join(', ') || 'No ingredients'}}
+    </p>
+  </div>
+</a>

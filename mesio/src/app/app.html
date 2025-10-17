@@ -1,0 +1,10 @@
+<div
+  [style.width.%]="100"
+  [style.height.%]="100"
+  [style.maxWidth.px]="isMobile() ? null : 600"
+  [style.maxWidth]="isMobile() ? '100%' : 'var(--screen-width)'"
+  [style.margin]="'0 auto'"
+  [style.position]="'relative'"
+>
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>

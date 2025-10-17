@@ -1,0 +1,19 @@
+<app-safe-area-view>
+  <app-header
+    [showGoBack]="true"
+    [title]="'Reply to Comment'"
+  />
+
+  <main>
+    <p>Write your Reply</p>
+    <app-input-field
+      [label]="'Reply'"
+      [placeholder]="'Write your reply...'"
+      [containerStyle]="{'margin-top': '12px', 'height': '127px','justify-content': 'flex-start', 'align-items': 'flex-start', 'padding': '12px', 'margin-bottom': '20px'}"
+    />
+    <app-button
+      [label]="'Submit Reply'"
+      (click)="goBack()"
+    />
+  </main>
+</app-safe-area-view>
