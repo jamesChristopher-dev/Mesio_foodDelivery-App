@@ -263,12 +263,3 @@ Specify a license that matches how you want to distribute this template (MIT, co
 ```
 MIT License — see LICENSE file for details.
 ```
-
----
-
-## Next steps I can generate for you (pick one)
-
-* A ready-to-paste `package.json` with dev scripts and recommended dependencies.
-* A sample `server.js` (Express) with minimal API endpoints for restaurants, menus and orders (mock data).
-* A GitHub Actions workflow that builds and runs tests for Android/iOS and optionally deploys artifacts to storage.
-* A one-week sprint checklist to ship a client-ready MVP (day-by-day).
