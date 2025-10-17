@@ -247,12 +247,10 @@ README.md
 
 ## Contact / Author
 
-**Author:** Your Name
+**Author:** James Christopher
 
-* GitHub: `https://github.com/your-username`
-* Email: `your.email@example.com`
-
-*(Replace placeholders before publishing.)*
+* GitHub: `https://github.com/jamesChristopher-dev`
+* Email: `jameschristopher.contact@gmail.com`
 
 ---
 
